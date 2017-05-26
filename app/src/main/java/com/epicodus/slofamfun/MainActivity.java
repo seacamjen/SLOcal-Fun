@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.localButton) Button mLocalButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.homeButton) Button mHomeButton;
+    @Bind(R.id.searchButton) Button mSearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLocalButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mHomeButton.setOnClickListener(this);
+        mSearchButton.setOnClickListener(this);
     }
 
     @Override
@@ -39,6 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (v == mHomeButton) {
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        } else if (v == mSearchButton) {
+            String search = mSearchButton.getText().toString();
+            Intent intent = new Intent(MainActivity.this, LocalActivity.class);
+            intent.putExtra("search", search);
             startActivity(intent);
         }
     }
