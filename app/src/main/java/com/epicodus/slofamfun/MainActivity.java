@@ -1,11 +1,13 @@
 package com.epicodus.slofamfun;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -15,6 +17,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    @Bind(R.id.titleView) TextView mTitleView;
     @Bind(R.id.yelpButton) Button mYelpButton;
     @Bind(R.id.localButton) Button mLocalButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Typeface funfont = Typeface.createFromAsset(getAssets(), "fonts/drawfont.ttf");
+        mTitleView.setTypeface(funfont);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
