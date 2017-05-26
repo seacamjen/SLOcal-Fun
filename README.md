@@ -23,6 +23,7 @@ _Make sure that an emulator is set up for Android Studio: AVD Name - Nexus 6 API
 * Add bio page to link from About page
 * Add Search options to be dynamic between yelp and local
 * Allow both yelp and local activity suggestions on one activity screen
+* Remove search prompt from Yelp and Local activity when no search is used
 
 _This is an ongoing project that will include an API integration, further searching results, Firebass database to save and remove information from._
 
