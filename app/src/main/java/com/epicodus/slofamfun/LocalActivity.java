@@ -24,9 +24,9 @@ public class LocalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String search = intent.getStringExtra("search");
-        mSearchedTextView.setText("Here are the results filtered by: " + search);
+//        Intent intent = getIntent();
+//        String search = intent.getStringExtra("search");
+//        mSearchedTextView.setText("Here are the results filtered by: " + search);
 
         LocalActivitiesArrayAdapter adapter = new LocalActivitiesArrayAdapter(this, android.R.layout.simple_list_item_1, activities, cities);
         mLocalList.setAdapter(adapter);

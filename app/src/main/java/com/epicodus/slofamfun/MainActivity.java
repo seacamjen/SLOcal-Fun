@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
-        awesomeValidation.addValidation(this, R.id.searchInput, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.searcherror);
+        awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
 
         mYelpButton.setOnClickListener(this);
         mLocalButton.setOnClickListener(this);
@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(awesomeValidation.validate()) {
             Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
 
-            String search = mSearchInput.getText().toString();
-            Intent intent = new Intent(MainActivity.this, LocalActivity.class);
-            intent.putExtra("search", search);
+            String location = mSearchInput.getText().toString();
+            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
+            intent.putExtra("location", location);
             startActivity(intent);
         }
     }
