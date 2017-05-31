@@ -129,7 +129,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/colorDividerText"
         android:ems="10"
-        android:hint="Museum"
+        android:hint="Zip Code"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryText"
