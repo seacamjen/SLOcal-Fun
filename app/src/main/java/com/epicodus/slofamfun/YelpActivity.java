@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,9 +29,13 @@ import okhttp3.Response;
 
 public class YelpActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = YelpActivity.class.getSimpleName();
+
     @Bind(R.id.localActivites) Button mLocalActivites;
     @Bind(R.id.yelpList) ListView mYelpList;
+
     private String[] kidActivity = new String[] {"SLO Childrens Museum", "Mitchell Park", "Pismo Beach", "Avila Beach", "Bishop Peak"};
+
+    public ArrayList<Activity> mActivities = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +66,10 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
+                    if (response.isSuccessful()) {
+                        Log.v(TAG, jsonData);
+                        mActivities = yelpService.processResults(response);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
