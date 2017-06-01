@@ -1,4 +1,4 @@
-package com.epicodus.slofamfun;
+package com.epicodus.slofamfun.models;
 
 import java.util.ArrayList;
 

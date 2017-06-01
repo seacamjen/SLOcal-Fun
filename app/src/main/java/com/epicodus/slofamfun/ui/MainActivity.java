@@ -1,4 +1,4 @@
-package com.epicodus.slofamfun;
+package com.epicodus.slofamfun.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.epicodus.slofamfun.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

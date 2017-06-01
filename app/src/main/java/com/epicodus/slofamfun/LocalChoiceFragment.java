@@ -5,8 +5,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.epicodus.slofamfun.ui.LocalActivity;
 
 public class LocalChoiceFragment extends DialogFragment {
 

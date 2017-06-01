@@ -1,11 +1,12 @@
-package com.epicodus.slofamfun;
+package com.epicodus.slofamfun.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RatingBar;
 import android.widget.Toast;
+
+import com.epicodus.slofamfun.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

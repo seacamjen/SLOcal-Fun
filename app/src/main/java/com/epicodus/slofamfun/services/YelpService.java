@@ -1,6 +1,9 @@
-package com.epicodus.slofamfun;
+package com.epicodus.slofamfun.services;
 
 import android.util.Log;
+
+import com.epicodus.slofamfun.Constants;
+import com.epicodus.slofamfun.models.Activity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,8 +29,6 @@ public class YelpService {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.API_BASE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.YELP_LOCATION_QUERY_PARAMETER, location);
         String url = urlBuilder.build().toString();
-
-        Log.v(TAG, url);
 
         Request request = new Request.Builder()
                 .url(url)

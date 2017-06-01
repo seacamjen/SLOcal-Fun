@@ -1,13 +1,12 @@
-package com.epicodus.slofamfun;
+package com.epicodus.slofamfun.ui;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.epicodus.slofamfun.R;
+import com.epicodus.slofamfun.adapters.LocalActivitiesArrayAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

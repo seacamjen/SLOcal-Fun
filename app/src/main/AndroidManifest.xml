@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,20 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity">
+        <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.slofamfun.MainActivity"></meta-data>
+                android:value="com.epicodus.slofamfun.ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".YelpActivity">
+        <activity android:name=".ui.YelpActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.slofamfun.MainActivity"></meta-data>
+                android:value="com.epicodus.slofamfun.ui.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".LocalActivity">
+        <activity android:name=".ui.LocalActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.slofamfun.MainActivity"></meta-data>
+                android:value="com.epicodus.slofamfun.ui.MainActivity"></meta-data>
         </activity>
         <activity android:name=".LocalChoiceFragment"></activity>
     </application>
