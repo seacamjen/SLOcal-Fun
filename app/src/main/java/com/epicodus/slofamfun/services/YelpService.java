@@ -58,6 +58,7 @@ public class YelpService {
                             .getJSONObject("coordinates").getDouble("latitude");
                     double longitude = activityJSON
                             .getJSONObject("coordinates").getDouble("longitude");
+
                     ArrayList<String> address = new ArrayList<>();
                     JSONArray addressJSON = activityJSON.getJSONObject("location")
                             .getJSONArray("display_address");

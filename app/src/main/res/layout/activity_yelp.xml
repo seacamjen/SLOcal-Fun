@@ -21,6 +21,11 @@
         app:layout_constraintVertical_bias="0.908"
         tools:layout_editor_absoluteY="65dp" />
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/yelpRecyclerView" />
+
     <Button
         android:id="@+id/localActivites"
         android:layout_width="wrap_content"

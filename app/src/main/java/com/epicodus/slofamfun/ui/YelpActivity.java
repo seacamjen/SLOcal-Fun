@@ -4,6 +4,8 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 
 import com.epicodus.slofamfun.LocalChoiceFragment;
 import com.epicodus.slofamfun.R;
+import com.epicodus.slofamfun.adapters.YelpActivityListAdapter;
 import com.epicodus.slofamfun.models.Activity;
 import com.epicodus.slofamfun.services.YelpService;
 
@@ -24,12 +27,11 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class YelpActivity extends AppCompatActivity implements View.OnClickListener {
-//    public static final String TAG = YelpActivity.class.getSimpleName();
+    public static final String TAG = YelpActivity.class.getSimpleName();
 
     @Bind(R.id.localActivites) Button mLocalActivites;
-    @Bind(R.id.yelpList) ListView mYelpList;
-
-//    private String[] kidActivity = new String[] {"SLO Childrens Museum", "Mitchell Park", "Pismo Beach", "Avila Beach", "Bishop Peak"};
+    @Bind(R.id.yelpRecyclerView) RecyclerView mYelpRecyclerView;
+    private YelpActivityListAdapter mYelpAdapter;
 
     public ArrayList<Activity> mActivities = new ArrayList<>();
 
@@ -38,9 +40,6 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp);
         ButterKnife.bind(this);
-
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, kidActivity);
-//        mYelpList.setAdapter(adapter);
 
         mLocalActivites.setOnClickListener(this);
 
@@ -54,6 +53,7 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
         final YelpService yelpService = new YelpService();
 
         yelpService.findActivities(location, new Callback() {
+
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
@@ -64,15 +64,14 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
                 mActivities = yelpService.processResults(response);
 
                 YelpActivity.this.runOnUiThread(new Runnable() {
+
                     @Override
                     public void run() {
-                        String[] activityNames = new String[mActivities.size()];
-                        for (int i = 0; i < activityNames.length; i++) {
-                            activityNames[i] = mActivities.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(YelpActivity.this, android.R.layout.simple_list_item_1, activityNames);
-                        mYelpList.setAdapter(adapter);
+                        mYelpAdapter = new YelpActivityListAdapter(getApplicationContext(), mActivities);
+                        mYelpRecyclerView.setAdapter(mYelpAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(YelpActivity.this);
+                        mYelpRecyclerView.setLayoutManager(layoutManager);
+                        mYelpRecyclerView.setHasFixedSize(true);
                     }
                 });
             }
