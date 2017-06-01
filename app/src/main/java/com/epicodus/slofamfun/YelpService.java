@@ -53,10 +53,10 @@ public class YelpService {
                     String website = activityJSON.optString("url", "Website not available");
                     double rating = activityJSON.getDouble("rating");
                     String imageUrl = activityJSON.getString("image_url");
-                    double latitude = activityJSON.getJSONObject("location")
-                            .getJSONObject("coordinate").getDouble("latitiude");
-                    double longitude = activityJSON.getJSONObject("location")
-                            .getJSONObject("coordinate").getDouble("longitude");
+                    double latitude = activityJSON
+                            .getJSONObject("coordinates").getDouble("latitude");
+                    double longitude = activityJSON
+                            .getJSONObject("coordinates").getDouble("longitude");
                     ArrayList<String> address = new ArrayList<>();
                     JSONArray addressJSON = activityJSON.getJSONObject("location")
                             .getJSONArray("display_address");
@@ -68,7 +68,7 @@ public class YelpService {
                     JSONArray categoriesJSON = activityJSON.getJSONArray("categories");
 
                     for (int y = 0; y < categoriesJSON.length(); y++) {
-                        categories.add(categoriesJSON.getJSONArray(y).get(0).toString());
+                        categories.add(categoriesJSON.getJSONObject(y).toString());
                     }
 
                     Activity activity = new Activity(name, imageUrl, website, rating, latitude, longitude, address, phone, categories);
