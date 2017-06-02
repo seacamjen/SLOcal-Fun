@@ -19,10 +19,10 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.titleView) TextView mTitleView;
-    @Bind(R.id.yelpButton) Button mYelpButton;
+//    @Bind(R.id.yelpButton) Button mYelpButton;
     @Bind(R.id.localButton) Button mLocalButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
-    @Bind(R.id.homeButton) Button mHomeButton;
+//    @Bind(R.id.homeButton) Button mHomeButton;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchInput) EditText mSearchInput;
     private AwesomeValidation awesomeValidation;
@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
 
-        mYelpButton.setOnClickListener(this);
+//        mYelpButton.setOnClickListener(this);
         mLocalButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
-        mHomeButton.setOnClickListener(this);
+//        mHomeButton.setOnClickListener(this);
         mSearchButton.setOnClickListener(this);
     }
 
@@ -60,19 +60,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == mYelpButton) {
-            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
-            startActivity(intent);
-        } else if (v == mLocalButton) {
+//        if (v == mYelpButton) {
+//            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
+//            startActivity(intent);
+//        }
+        if (v == mLocalButton) {
             Intent intent = new Intent(MainActivity.this, LocalActivity.class);
             startActivity(intent);
-        } else if (v == mAboutButton) {
+        }
+        if (v == mAboutButton) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
-        } else if (v == mHomeButton) {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        } else if (v == mSearchButton) {
+        }
+//        if (v == mHomeButton) {
+//            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+//            startActivity(intent);
+//        }
+        if (v == mSearchButton) {
             submitForm();
         }
     }
