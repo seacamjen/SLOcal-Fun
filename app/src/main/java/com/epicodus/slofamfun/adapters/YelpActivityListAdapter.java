@@ -22,6 +22,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityListAdapter.YelpViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Activity> mActivities = new ArrayList<>();
     private Context mContext;
 
@@ -71,7 +74,12 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
         }
 
         public void bindActivity(Activity activity) {
-            Picasso.with(mContext).load(activity.getImageUrl()).into(mRestaurantImageView);
+            Picasso.with(mContext)
+                    .load(activity.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mRestaurantImageView);
+
             mNameTextView.setText(activity.getName());
             mCategoryTextView.setText(activity.getCategories().get(0));
             mRatingTextView.setText(("Rataing: " + activity.getRating() + "/5"));
