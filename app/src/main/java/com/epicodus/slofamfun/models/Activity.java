@@ -1,17 +1,22 @@
 package com.epicodus.slofamfun.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
+@Parcel
 public class Activity {
-    private String mName;
-    private String mImageUrl;
-    private String mWebsite;
-    private double mRating;
-    private double mLatitude;
-    private double mLongitude;
-    private ArrayList<String> mAddress = new ArrayList<>();
-    private String mPhone;
-    private ArrayList<String> mCategories = new ArrayList<>();
+    public String mName;
+    public String mImageUrl;
+    public String mWebsite;
+    public double mRating;
+    public double mLatitude;
+    public double mLongitude;
+    public ArrayList<String> mAddress = new ArrayList<>();
+    public String mPhone;
+    public ArrayList<String> mCategories = new ArrayList<>();
+
+    public Activity() {}
 
     public Activity(String name, String imageUrl, String website, double rating, double latitude, double longitude, ArrayList<String> address, String phone, ArrayList<String> categories) {
         this.mName = name;

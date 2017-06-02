@@ -1,6 +1,7 @@
 package com.epicodus.slofamfun.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.models.Activity;
+import com.epicodus.slofamfun.ui.YelpDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,7 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
         return mActivities.size();
     }
 
-    public class YelpViewHolder extends RecyclerView.ViewHolder {
+    public class YelpViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
         @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
@@ -54,6 +58,16 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, YelpDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("activities", Parcels.wrap(mActivities));
+            mContext.startActivity(intent);
         }
 
         public void bindActivity(Activity activity) {
