@@ -36,7 +36,12 @@
                 android:value="com.epicodus.slofamfun.ui.MainActivity" />
         </activity>
         <activity android:name=".LocalChoiceFragment" />
-        <activity android:name=".ui.YelpDetailActivity"></activity>
+        <activity android:name=".ui.YelpDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.slofamfun.ui.MainActivity" >
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

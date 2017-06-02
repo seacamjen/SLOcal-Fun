@@ -10,12 +10,7 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:id="@+id/activityImageView"
-            android:src="@drawable/slolife"
-            android:scaleType="centerCrop" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,7 +19,8 @@
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingBottom="20dp">
+            android:paddingBottom="20dp"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,20 +29,20 @@
                 android:id="@+id/activityNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/activityNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="4.5/5"-->
+                <!--android:id="@+id/ratingTextView"-->
+                <!--android:layout_alignTop="@+id/activityNameTextView"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:textColor="@color/colorAccent"-->
+                <!--android:textStyle="bold" />-->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,6 +55,13 @@
                 android:textColor="@color/colorSecondaryText"
                 android:textStyle="italic" />
         </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/activityImageView"
+            android:src="@drawable/slolife"
+            android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -79,6 +82,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="More Info:"
+                    android:textSize="25dp"
+                    android:paddingLeft="100dp"
+                    android:textColor="@color/colorText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="View Online"
                     android:id="@+id/websiteTextView"
                     android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
@@ -86,7 +97,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center" />
 
                 <TextView
@@ -99,7 +110,7 @@
                     android:textColor="@color/colorText"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"/>
 
                 <TextView
@@ -117,15 +128,15 @@
 
             </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Add Activity"
-                android:id="@+id/addActivityButton"
-                android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent"
-                android:textColor="@color/colorText"
-                android:textSize="15sp" />
+            <!--<Button-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Add Activity"-->
+                <!--android:id="@+id/addActivityButton"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:background="@color/colorAccent"-->
+                <!--android:textColor="@color/colorText"-->
+                <!--android:textSize="15sp" />-->
         </RelativeLayout>
     </LinearLayout>
 </FrameLayout>
