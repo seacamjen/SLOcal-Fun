@@ -25,14 +25,14 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
 
-    @Bind(R.id.restaurantImageView) ImageView mImageLabel;
-    @Bind(R.id.restaurantNameTextView) TextView mNameLabel;
-    @Bind(R.id.cuisineTextView) TextView mCategoriesLabel;
+    @Bind(R.id.activityImageView) ImageView mImageLabel;
+    @Bind(R.id.activityNameTextView) TextView mNameLabel;
+    @Bind(R.id.categoryTextView) TextView mCategoriesLabel;
     @Bind(R.id.ratingTextView) TextView mRatingLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
-    @Bind(R.id.saveRestaurantButton) TextView mSaveRestaurantButton;
+    @Bind(R.id.addActivityButton) TextView mAddActivityButton;
 
     private Activity mActivity;
 

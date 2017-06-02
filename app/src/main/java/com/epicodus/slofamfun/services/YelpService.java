@@ -70,7 +70,7 @@ public class YelpService {
                     JSONArray categoriesJSON = activityJSON.getJSONArray("categories");
 
                     for (int y = 0; y < categoriesJSON.length(); y++) {
-                        categories.add(categoriesJSON.getJSONObject(y).toString());
+                        categories.add(categoriesJSON.getJSONObject(y).getString("title"));
                     }
 
                     Activity activity = new Activity(name, imageUrl, website, rating, latitude, longitude, address, phone, categories);

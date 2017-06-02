@@ -51,10 +51,10 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
     }
 
     public class YelpViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
-        @Bind(R.id.restaurantNameTextView) TextView mNameTextView;
+        @Bind(R.id.activityImageView) ImageView mRestaurantImageView;
+        @Bind(R.id.activityNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
-        @Bind(R.id.ratingTextView) TextView mRatingTextView;
+//        @Bind(R.id.ratingTextView) TextView mRatingTextView;
         private Context mContext;
 
         public YelpViewHolder(View itemView) {
@@ -82,7 +82,7 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
 
             mNameTextView.setText(activity.getName());
             mCategoryTextView.setText(activity.getCategories().get(0));
-            mRatingTextView.setText(("Rataing: " + activity.getRating() + "/5"));
+//            mRatingTextView.setText(("Rataing: " + activity.getRating() + "/5"));
         }
     }
 
