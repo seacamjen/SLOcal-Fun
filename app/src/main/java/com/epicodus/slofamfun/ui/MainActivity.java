@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void submitForm() {
         if(awesomeValidation.validate()) {
-            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
 
             String location = mSearchInput.getText().toString();
             Intent intent = new Intent(MainActivity.this, YelpActivity.class);
