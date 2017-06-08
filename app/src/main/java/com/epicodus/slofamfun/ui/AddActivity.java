@@ -107,6 +107,6 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     }
 
     public void saveLocalAcivityToFirebase(LocalActivity localActivity) {
-        mActiveRef.child(cityChosen).push().setValue(localActivity);
+        mActiveRef.child("cities").child(cityChosen).push().setValue(localActivity);
     }
 }
