@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "91282878842",
+    "firebase_url": "https://slocal-40933.firebaseio.com",
+    "project_id": "slocal-40933",
+    "storage_bucket": "slocal-40933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91282878842:android:572ee74593ee00f4",
+        "android_client_info": {
+          "package_name": "com.epicodus.slofamfun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91282878842-g0ruo83ge3502gqodd5kprndc5v6bbr9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.slofamfun",
+            "certificate_hash": "8fb76ce63083e149517c26a6a3ee775f2f2b9d87"
+          }
+        },
+        {
+          "client_id": "91282878842-pvasamn46j2lk93brj5e61jlps2ggnga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtd8eMLoHxlb4I-rQkqtgV2JYEjRNvn4g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91282878842-pvasamn46j2lk93brj5e61jlps2ggnga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

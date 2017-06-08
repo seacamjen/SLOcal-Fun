@@ -2,15 +2,19 @@ package com.epicodus.slofamfun.ui;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.LocalChoiceFragment;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.adapters.YelpActivityListAdapter;
@@ -28,6 +32,8 @@ import okhttp3.Response;
 
 public class YelpActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = YelpActivity.class.getSimpleName();
+    private SharedPreferences mSharedPreferenes;
+    private String mRecentAddress;
 
     @Bind(R.id.localActivites) Button mLocalActivites;
     @Bind(R.id.yelpRecyclerView) RecyclerView mYelpRecyclerView;
@@ -45,6 +51,12 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+
+        mSharedPreferenes = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferenes.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentAddress != null) {
+            getActivities(mRecentAddress);
+        }
 
         getActivities(location);
     }

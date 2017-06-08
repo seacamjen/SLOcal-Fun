@@ -1,7 +1,9 @@
 package com.epicodus.slofamfun.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +14,16 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Bind(R.id.titleView) TextView mTitleView;
 //    @Bind(R.id.yelpButton) Button mYelpButton;
     @Bind(R.id.localButton) Button mLocalButton;
@@ -33,12 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         Typeface funfont = Typeface.createFromAsset(getAssets(), "fonts/drawfont.ttf");
         mTitleView.setTypeface(funfont);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
-        awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
+//        awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
 
 //        mYelpButton.setOnClickListener(this);
         mLocalButton.setOnClickListener(this);
@@ -52,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
 
             String location = mSearchInput.getText().toString();
+            if(!(location).equals("")) {
+                addToSharedPreferences(location);
+            }
             Intent intent = new Intent(MainActivity.this, YelpActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
@@ -79,5 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mSearchButton) {
             submitForm();
         }
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }
