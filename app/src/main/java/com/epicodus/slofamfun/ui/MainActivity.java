@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            startActivity(intent);
 //        }
         if (v == mLocalButton) {
-            Intent intent = new Intent(MainActivity.this, LocalActivity.class);
+            Intent intent = new Intent(MainActivity.this, LocalUiActivity.class);
             startActivity(intent);
         }
         if (v == mAboutButton) {
