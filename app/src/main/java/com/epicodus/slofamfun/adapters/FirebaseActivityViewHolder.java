@@ -10,6 +10,7 @@ import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.models.LocalActivity;
 import com.epicodus.slofamfun.ui.LocalUiActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +21,9 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
+
 public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
     View mView;
     Context mContext;
 
@@ -39,12 +42,15 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
         activityName.setText(localActivity.getName());
         activityAddress.setText(localActivity.getAddress());
         activityComment.setText(localActivity.getComments());
+
+
     }
 
     @Override
     public void onClick(View view) {
         final ArrayList<LocalActivity> localActivity = new ArrayList<>();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.PREFERENCES_LOCATION_KEY);
+
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -57,6 +63,7 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
                 Intent intent = new Intent(mContext, LocalUiActivity.class);
                 intent.putExtra("position", itemPosition + "");
                 intent.putExtra("localActivity", Parcels.wrap(localActivity));
+
 
                 mContext.startActivity(intent);
             }
