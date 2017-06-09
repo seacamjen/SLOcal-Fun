@@ -30,12 +30,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LocalUiActivity extends AppCompatActivity {
-//    @Bind(R.id.localList) ListView mLocalList;
-//    @Bind(R.id.searchedTextView) TextView mSearchedTextView;
     @Bind(R.id.localRecyclerView) RecyclerView mLocalRecyclerView;
 
-//    private FirebaseAuth mAuth;
-//    private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mSearchedAcitivityReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     private SharedPreferences mSharedPreferences;
@@ -72,13 +68,6 @@ public class LocalUiActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setUpFirebaseAdapter();
-
-//        Intent intent = getIntent();
-//        String search = intent.getStringExtra("search");
-//        mSearchedTextView.setText("Here are the results filtered by: " + search);
-
-//        LocalActivitiesArrayAdapter adapter = new LocalActivitiesArrayAdapter(this, android.R.layout.simple_list_item_1, activities, cities);
-//        mLocalList.setAdapter(adapter);
     }
 
     private void setUpFirebaseAdapter(){

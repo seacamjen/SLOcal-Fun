@@ -29,11 +29,9 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
     @Bind(R.id.activityImageView) ImageView mImageLabel;
     @Bind(R.id.activityNameTextView) TextView mNameLabel;
     @Bind(R.id.categoryTextView) TextView mCategoriesLabel;
-//    @Bind(R.id.ratingTextView) TextView mRatingLabel;
     @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
-//    @Bind(R.id.addActivityButton) TextView mAddActivityButton;
 
     private Activity mActivity;
 
@@ -70,7 +68,6 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
 
         mNameLabel.setText(mActivity.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mActivity.getCategories()));
-//        mRatingLabel.setText(Double.toString(mActivity.getRating()) + "/5");
         mPhoneLabel.setText(mActivity.getPhone());
         mAddressLabel.setText(android.text.TextUtils.join(", ", mActivity.getAddress()));
 

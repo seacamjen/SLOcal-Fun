@@ -28,7 +28,7 @@ public class LocalActivityListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local);
         ButterKnife.bind(this);
 
-        mLocalReference = FirebaseDatabase.getInstance().getReference("cities");
+        mLocalReference = FirebaseDatabase.getInstance().getReference();
         setUpFirebaseAdapter();
     }
 

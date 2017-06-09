@@ -2,6 +2,7 @@ package com.epicodus.slofamfun.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     @Bind(R.id.registerCPassword) EditText mCPassword;
     @Bind(R.id.registerSubmit) Button mSubmit;
     @Bind(R.id.registerToLoginText) TextView mToLogin;
+    @Bind(R.id.registerTitle) TextView mRegTitle;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -44,6 +46,10 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
 
         mSubmit.setOnClickListener(this);
         mToLogin.setOnClickListener(this);
+
+        Typeface funfont = Typeface.createFromAsset(getAssets(), "fonts/drawfont.ttf");
+        mToLogin.setTypeface(funfont);
+        mRegTitle.setTypeface(funfont);
 
         createAuthStateListener();
         createAuthProgressDialog();
