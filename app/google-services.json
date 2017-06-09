@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "91282878842-nekkcf307r6qsl553oqfiqokk5mcvrqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.slofamfun",
+            "certificate_hash": "d5e486681f7c3e9b579f080e0498db1fdfbb7557"
+          }
+        },
+        {
           "client_id": "91282878842-g0ruo83ge3502gqodd5kprndc5v6bbr9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

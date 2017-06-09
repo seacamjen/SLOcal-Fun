@@ -14,11 +14,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.AboutActivity">
             <meta-data
@@ -43,7 +39,15 @@
         </activity>
         <activity android:name=".ui.AddActivity" />
         <activity android:name=".ui.LocalActivityListActivity" />
-        <activity android:name=".ui.LocalDetailActivity"></activity>
+        <activity android:name=".ui.LocalDetailActivity" />
+        <activity android:name=".ui.CreateAccount" />
+        <activity android:name=".ui.Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

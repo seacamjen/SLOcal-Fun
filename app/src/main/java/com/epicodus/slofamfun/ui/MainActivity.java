@@ -15,6 +15,7 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    @Bind(R.id.yelpButton) Button mYelpButton;
     @Bind(R.id.localButton) Button mLocalButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
+    @Bind(R.id.logoutButton) Button mLogoutButton;
 //    @Bind(R.id.homeButton) Button mHomeButton;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchInput) EditText mSearchInput;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mYelpButton.setOnClickListener(this);
         mLocalButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
+        mLogoutButton.setOnClickListener(this);
 //        mHomeButton.setOnClickListener(this);
         mSearchButton.setOnClickListener(this);
     }
@@ -76,6 +79,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            startActivity(intent);
 //        }
         if (v == mLocalButton) {
+            String city = mSearchInput.getText().toString();
+            if(!(city).equals("")) {
+                addToSharedPreferences(city);
+            }
             Intent intent = new Intent(MainActivity.this, LocalUiActivity.class);
             startActivity(intent);
         }
@@ -89,6 +96,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        }
         if (v == mSearchButton) {
             submitForm();
+        }
+        if (v == mLogoutButton) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 
