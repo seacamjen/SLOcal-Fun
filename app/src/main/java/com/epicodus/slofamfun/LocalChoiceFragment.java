@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 
-import com.epicodus.slofamfun.ui.LocalActivity;
+import com.epicodus.slofamfun.ui.LocalUiActivity;
 
 public class LocalChoiceFragment extends DialogFragment {
 
@@ -27,7 +27,7 @@ public class LocalChoiceFragment extends DialogFragment {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getActivity(), LocalActivity.class);
+                Intent intent = new Intent(getActivity(), LocalUiActivity.class);
                 startActivity(intent);
                 dismiss();
             }
