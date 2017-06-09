@@ -39,7 +39,11 @@
         </activity>
         <activity android:name=".ui.AddActivity" />
         <activity android:name=".ui.LocalActivityListActivity" />
-        <activity android:name=".ui.LocalDetailActivity" />
+        <activity android:name=".ui.LocalDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.slofamfun.ui.LocalUiActivity" />
+        </activity>
         <activity android:name=".ui.CreateAccount" />
         <activity android:name=".ui.Login">
             <intent-filter>
