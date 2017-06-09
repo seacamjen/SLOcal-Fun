@@ -25,11 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.titleView) TextView mTitleView;
-//    @Bind(R.id.yelpButton) Button mYelpButton;
     @Bind(R.id.localButton) Button mLocalButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.logoutButton) Button mLogoutButton;
-//    @Bind(R.id.homeButton) Button mHomeButton;
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchInput) EditText mSearchInput;
     private AwesomeValidation awesomeValidation;
@@ -50,11 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //        awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
 
-//        mYelpButton.setOnClickListener(this);
+
         mLocalButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mLogoutButton.setOnClickListener(this);
-//        mHomeButton.setOnClickListener(this);
         mSearchButton.setOnClickListener(this);
     }
 
@@ -74,10 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-//        if (v == mYelpButton) {
-//            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
-//            startActivity(intent);
-//        }
         if (v == mLocalButton) {
             String city = mSearchInput.getText().toString();
             if(!(city).equals("")) {
@@ -90,10 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
-//        if (v == mHomeButton) {
-//            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-//            startActivity(intent);
-//        }
         if (v == mSearchButton) {
             submitForm();
         }

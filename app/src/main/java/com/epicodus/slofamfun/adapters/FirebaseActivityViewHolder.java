@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.epicodus.slofamfun.Constants;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 
 
 public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
@@ -38,12 +42,17 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
         TextView activityName = (TextView) mView.findViewById(R.id.localNameTextView);
         TextView activityAddress = (TextView) mView.findViewById(R.id.localAddressTextView);
         TextView activityComment = (TextView) mView.findViewById(R.id.localCommentTextView);
+//        ImageView activityImage = (ImageView) mView.findViewById(R.id.localPicture);
+//
+//        Picasso.with(mContext)
+//                .load(localActivity.getImage())
+//                .resize(MAX_WIDTH, MAX_HEIGHT)
+//                .centerCrop()
+//                .into(activityImage);
 
         activityName.setText(localActivity.getName());
         activityAddress.setText(localActivity.getAddress());
         activityComment.setText(localActivity.getComments());
-
-
     }
 
     @Override
