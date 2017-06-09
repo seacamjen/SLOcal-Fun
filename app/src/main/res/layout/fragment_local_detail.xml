@@ -46,12 +46,12 @@
                 <!--android:textStyle="italic" />-->
         </RelativeLayout>
 
-        <!--<ImageView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="180dp"-->
-            <!--android:id="@+id/activityImageView"-->
-            <!--android:src="@drawable/slolife"-->
-            <!--android:scaleType="centerCrop" />-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/activityImageView"
+            android:src="@drawable/slolife"
+            android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -116,6 +116,50 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
                     android:gravity="center_vertical"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stroller Access"
+                    android:layout_gravity="center"
+                    android:drawablePadding="4dp"
+                    android:id="@+id/localStrollerTextView"
+                    android:textColor="@color/colorText"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"/>
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Age Range"
+                        android:layout_gravity="center"
+                        android:drawablePadding="4dp"
+                        android:id="@+id/localAgeTextView"
+                        android:textColor="@color/colorText"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comments"
+                        android:layout_gravity="center"
+                        android:drawablePadding="4dp"
+                        android:id="@+id/localCommentTextView"
+                        android:textColor="@color/colorText"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"/>
+
+
 
             </LinearLayout>
 

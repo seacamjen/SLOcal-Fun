@@ -3,6 +3,7 @@ package com.epicodus.slofamfun.adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import com.epicodus.slofamfun.models.LocalActivity;
 import com.epicodus.slofamfun.ui.LocalDetailFragment;
@@ -30,5 +31,6 @@ public class LocalPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return mLocalActivities.get(position).getName();
+
     }
 }

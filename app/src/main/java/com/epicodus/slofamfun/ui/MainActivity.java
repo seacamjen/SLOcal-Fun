@@ -7,8 +7,11 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
@@ -29,8 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.logoutButton) Button mLogoutButton;
     @Bind(R.id.searchButton) Button mSearchButton;
-    @Bind(R.id.searchInput) EditText mSearchInput;
+    @Bind(R.id.searchInput) Spinner mSearchInput;
+    @Bind(R.id.chooseCity) TextView mChooseCity;
     private AwesomeValidation awesomeValidation;
+    private String cityChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Typeface funfont = Typeface.createFromAsset(getAssets(), "fonts/drawfont.ttf");
         mTitleView.setTypeface(funfont);
+        mChooseCity.setTypeface(funfont);
+
+        Spinner cityDropdown = (Spinner)findViewById(R.id.searchInput);
+        String[] cities = new String[] {"Atascadero", "San Luis Obispo", "Paso Robles", "Morro Bay", "Avila Beach", "Pismo Beach", "Arroyo Grande", "Templeton", "Grover Beach", "Los Osos", "Cayucos", "Oceano", "Nipomo", "Santa Margarita"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cities);
+        cityDropdown.setAdapter(adapter);
+
+        cityDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                cityChosen = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
@@ -59,12 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(awesomeValidation.validate()) {
 //            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
 
-            String city = mSearchInput.getText().toString();
-            if(!(city).equals("")) {
-                addToSharedPreferences(city);
+//            String city = cityChosen.getText().toString();
+            if(!(cityChosen).equals("")) {
+                addToSharedPreferences(cityChosen);
             }
             Intent intent = new Intent(MainActivity.this, YelpActivity.class);
-            intent.putExtra("city", city);
+            intent.putExtra("city", cityChosen);
             startActivity(intent);
         }
     }
@@ -72,9 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mLocalButton) {
-            String city = mSearchInput.getText().toString();
-            if(!(city).equals("")) {
-                addToSharedPreferences(city);
+//            String city = mSearchInput.getText().toString();
+            if(!(cityChosen).equals("")) {
+                addToSharedPreferences(cityChosen);
             }
             Intent intent = new Intent(MainActivity.this, LocalUiActivity.class);
             startActivity(intent);

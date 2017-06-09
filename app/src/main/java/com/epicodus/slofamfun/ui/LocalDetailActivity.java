@@ -27,7 +27,7 @@ public class LocalDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_local_detail);
         ButterKnife.bind(this);
 
-        mLocalActivities = Parcels.unwrap(getIntent().getParcelableExtra("localactivities"));
+        mLocalActivities = Parcels.unwrap(getIntent().getParcelableExtra("localActivity"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
         adapterLocalViewPager = new LocalPagerAdapter(getSupportFragmentManager(), mLocalActivities);

@@ -63,9 +63,6 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
                 .centerCrop()
                 .into(mImageLabel);
 
-        Log.d("image", mActivity.getImageUrl());
-
-
         mNameLabel.setText(mActivity.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mActivity.getCategories()));
         mPhoneLabel.setText(mActivity.getPhone());
