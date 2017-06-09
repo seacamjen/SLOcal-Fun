@@ -20,22 +20,22 @@ _Make sure that an emulator is set up for Android Studio: AVD Name - Nexus 6 API
 
 ## Future Plans
 
-* Add bio page to link from About page
-* Add Search options to be dynamic between yelp and local
-* Allow both yelp and local activity suggestions on one activity screen
-* Remove search prompt from Yelp and Local activity when no search is used
+* Allow device camera to take pictures and upload
+* Add more activities to local favorites
+* Add email authentication for user registration
+* Allow search to include certain types of activities, categories, etc
 
-_This is an ongoing project that will include an API integration, further searching results, Firebass database to save and remove information from._
+_This project is focused on San Luis Obispo county, CA cities and will/can be expanded in the future_
 
 ## Current Status
 
-* 4 Activities exist: Main, About, Yelp, local
-* 1 Custom Adapter: LocalActivitiesArrayAdapter
-* 1 Custom Fragment: LocalChoiceFragment
+* 12 Activities exist
+* 5 Custom Adapter
+* 1 Custom Fragment
 
 ## Known Bugs
 
-* Search is not yet functional
+* Search cant be defined besides city
 * Rating is not processed
 
 ## Support and contact details
