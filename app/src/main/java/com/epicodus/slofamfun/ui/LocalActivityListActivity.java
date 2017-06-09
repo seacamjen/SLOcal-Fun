@@ -33,7 +33,7 @@ public class LocalActivityListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<LocalActivity, FirebaseActivityViewHolder>(LocalActivity.class, R.layout.local_list_item, FirebaseActivityViewHolder.class, mLocalReference) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<LocalActivity, FirebaseActivityViewHolder>(LocalActivity.class, R.layout.local_activity_list, FirebaseActivityViewHolder.class, mLocalReference) {
             @Override
             protected void populateViewHolder(FirebaseActivityViewHolder viewHolder, LocalActivity model, int position) {
                   viewHolder.bindActivity(model);
