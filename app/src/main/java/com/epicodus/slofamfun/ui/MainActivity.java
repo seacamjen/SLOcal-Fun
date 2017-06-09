@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(awesomeValidation.validate()) {
 //            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
 
-            String location = mSearchInput.getText().toString();
-            if(!(location).equals("")) {
-                addToSharedPreferences(location);
+            String city = mSearchInput.getText().toString();
+            if(!(city).equals("")) {
+                addToSharedPreferences(city);
             }
             Intent intent = new Intent(MainActivity.this, YelpActivity.class);
-            intent.putExtra("location", location);
+            intent.putExtra("city", city);
             startActivity(intent);
         }
     }
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void addToSharedPreferences(String location) {
-        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
+    private void addToSharedPreferences(String city) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, city).apply();
     }
 }

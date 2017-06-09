@@ -50,7 +50,7 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
         mLocalActivites.setOnClickListener(this);
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        String city = intent.getStringExtra("city");
 
         mSharedPreferenes = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferenes.getString(Constants.PREFERENCES_LOCATION_KEY, null);
@@ -58,7 +58,7 @@ public class YelpActivity extends AppCompatActivity implements View.OnClickListe
             getActivities(mRecentAddress);
         }
 
-        getActivities(location);
+        getActivities(city);
     }
 
     private void getActivities(String location) {

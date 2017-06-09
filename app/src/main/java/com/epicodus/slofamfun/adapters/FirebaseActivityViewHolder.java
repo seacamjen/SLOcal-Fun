@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.models.LocalActivity;
 import com.epicodus.slofamfun.ui.LocalUiActivity;
@@ -43,7 +44,7 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
     @Override
     public void onClick(View view) {
         final ArrayList<LocalActivity> localActivity = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Avila Beach");
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.PREFERENCES_LOCATION_KEY);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

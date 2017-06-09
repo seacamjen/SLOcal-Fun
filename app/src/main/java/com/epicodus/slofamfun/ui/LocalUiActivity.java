@@ -1,6 +1,8 @@
 package com.epicodus.slofamfun.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.adapters.FirebaseActivityViewHolder;
 import com.epicodus.slofamfun.models.LocalActivity;
@@ -35,13 +38,19 @@ public class LocalUiActivity extends AppCompatActivity {
 //    private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mSearchedAcitivityReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
 
     protected void onCreate(Bundle savedInstanceState) {
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+
 
         mSearchedAcitivityReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
-                .child("Avila Beach");
+                .child(mRecentAddress);
 
         mSearchedAcitivityReference.addValueEventListener(new ValueEventListener() {
             @Override
