@@ -3,8 +3,11 @@ package com.epicodus.slofamfun.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +28,7 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -34,6 +38,7 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
 
     View mView;
     Context mContext;
+    private LocalActivity localActivity;
 
     public FirebaseActivityViewHolder(View itemView) {
         super(itemView);
@@ -46,8 +51,16 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
         TextView activityName = (TextView) mView.findViewById(R.id.localNameTextView);
         TextView activityAddress = (TextView) mView.findViewById(R.id.localAddressTextView);
         TextView activityComment = (TextView) mView.findViewById(R.id.localCommentTextView);
-//        ImageView activityImage = (ImageView) mView.findViewById(R.id.localPicture);
-//
+        ImageView activityImage = (ImageView) mView.findViewById(R.id.localImageView);
+
+        try {
+            Bitmap imageBitmap = decodeFromFirebaseBase64(localActivity.getImage());
+            activityImage.setImageBitmap(imageBitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
 //        Picasso.with(mContext)
 //                .load(localActivity.getImage())
 //                .resize(MAX_WIDTH, MAX_HEIGHT)
@@ -84,5 +97,10 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    public static Bitmap decodeFromFirebaseBase64(String image) throws IOException {
+        byte[] decodedByteArray = android.util.Base64.decode(image, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
     }
 }
