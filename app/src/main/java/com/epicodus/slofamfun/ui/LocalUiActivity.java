@@ -1,5 +1,6 @@
 package com.epicodus.slofamfun.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -36,6 +37,7 @@ public class LocalUiActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter mFirebaseAdapter;
     private SharedPreferences mSharedPreferences;
     private String mRecentAddress;
+    private ProgressDialog mAuthProgressDialog;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -65,15 +67,25 @@ public class LocalUiActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local);
+        createAuthProgressDialog();
         ButterKnife.bind(this);
 
         setUpFirebaseAdapter();
     }
 
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Retrieving Information...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
     private void setUpFirebaseAdapter(){
+        mAuthProgressDialog.show();
         mFirebaseAdapter = new FirebaseRecyclerAdapter<LocalActivity, FirebaseActivityViewHolder>(LocalActivity.class, R.layout.local_activity_list, FirebaseActivityViewHolder.class, mSearchedAcitivityReference) {
             @Override
             protected void populateViewHolder(FirebaseActivityViewHolder viewHolder, LocalActivity model, int position) {
+                mAuthProgressDialog.dismiss();
                 viewHolder.bindActivity(model);
             }
         };

@@ -46,6 +46,8 @@
         android:layout_height="45dp"
         android:id="@+id/loginPassword"
         android:hint="password"
+        android:inputType="textPassword"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
