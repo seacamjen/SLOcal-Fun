@@ -30,73 +30,14 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class YelpActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = YelpActivity.class.getSimpleName();
-    private SharedPreferences mSharedPreferenes;
-    private String mRecentAddress;
-
-    @Bind(R.id.localActivites) Button mLocalActivites;
-    @Bind(R.id.yelpRecyclerView) RecyclerView mYelpRecyclerView;
-    private YelpActivityListAdapter mYelpAdapter;
-
-    public ArrayList<Activity> mActivities = new ArrayList<>();
+public class YelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yelp);
-        ButterKnife.bind(this);
-
-        mLocalActivites.setOnClickListener(this);
-
-        Intent intent = getIntent();
-        String city = intent.getStringExtra("city");
-
-        mSharedPreferenes = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferenes.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentAddress != null) {
-            getActivities(mRecentAddress);
-        }
-
-        getActivities(city);
     }
 
-    private void getActivities(String location) {
-        final YelpService yelpService = new YelpService();
 
-        yelpService.findActivities(location, new Callback() {
-
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                mActivities = yelpService.processResults(response);
-
-                YelpActivity.this.runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        mYelpAdapter = new YelpActivityListAdapter(getApplicationContext(), mActivities);
-                        mYelpRecyclerView.setAdapter(mYelpAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(YelpActivity.this);
-                        mYelpRecyclerView.setLayoutManager(layoutManager);
-                        mYelpRecyclerView.setHasFixedSize(true);
-                    }
-                });
-            }
-        });
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(v == mLocalActivites) {
-            FragmentManager fm = getFragmentManager();
-            LocalChoiceFragment localChoiceFragment = new LocalChoiceFragment();
-            localChoiceFragment.show(fm, "Sample Fragment");
-        }
-    }
 
 }
