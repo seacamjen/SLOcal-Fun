@@ -46,6 +46,8 @@
     <EditText
         android:layout_width="309dp"
         android:layout_height="65dp"
+        android:inputType="textPassword"
+        android:fontFamily="sans-serif"
         android:id="@+id/registerPassword"
         android:hint="Password"
         android:layout_marginLeft="8dp"
@@ -64,6 +66,8 @@
     <EditText
         android:layout_width="309dp"
         android:layout_height="65dp"
+        android:inputType="textPassword"
+        android:fontFamily="sans-serif"
         android:id="@+id/registerCPassword"
         android:hint="Re-enter Password"
         app:layout_constraintTop_toTopOf="parent"

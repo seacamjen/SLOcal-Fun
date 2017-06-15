@@ -1,6 +1,7 @@
 package com.epicodus.slofamfun.ui;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -31,8 +32,8 @@ import okhttp3.Response;
 public class YelpFragment extends Fragment {
     private SharedPreferences mSharedPreferenes;
     private String mRecentAddress;
+    private ProgressDialog mAuthProgressDialog;
 
-//    @Bind(R.id.localActivites) Button mLocalActivites;
     @Bind(R.id.yelpRecyclerView) RecyclerView mYelpRecyclerView;
     private YelpActivityListAdapter mYelpAdapter;
 
@@ -44,12 +45,21 @@ public class YelpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        createAuthProgressDialog();
 
         mSharedPreferenes = PreferenceManager.getDefaultSharedPreferences(getActivity());
     }
 
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(getActivity());
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Retrieving Information...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
     private void getActivities(String location) {
         final YelpService yelpService = new YelpService();
+        mAuthProgressDialog.show();
 
         yelpService.findActivities(location, new Callback() {
 
@@ -60,6 +70,7 @@ public class YelpFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                mAuthProgressDialog.dismiss();
                 mActivities = yelpService.processResults(response);
 
                 getActivity().runOnUiThread(new Runnable() {
