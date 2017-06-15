@@ -20,7 +20,7 @@ public class YelpPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return YelpDetailFragment.newInstance(mActivities.get(position));
+        return YelpDetailFragment.newInstance(mActivities, position);
     }
 
     @Override

@@ -19,12 +19,16 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class YelpDetailFragment extends Fragment implements View.OnClickListener {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
+    private ArrayList<Activity> mActivities;
+    private int mPosition;
 
     @Bind(R.id.activityImageView) ImageView mImageLabel;
     @Bind(R.id.activityNameTextView) TextView mNameLabel;
@@ -36,10 +40,13 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
     private Activity mActivity;
 
 
-    public static YelpDetailFragment newInstance(Activity activity) {
+    public static YelpDetailFragment newInstance(ArrayList<Activity> activities, Integer position) {
         YelpDetailFragment yelpDetailFragment = new YelpDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("activity", Parcels.wrap(activity));
+
+        args.putParcelable("activity", Parcels.wrap(activities));
+        args.putInt("position", position);
+
         yelpDetailFragment.setArguments(args);
         return yelpDetailFragment;
     }
@@ -47,7 +54,9 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mActivity = Parcels.unwrap(getArguments().getParcelable("activity"));
+        mActivities = Parcels.unwrap(getArguments().getParcelable("activity"));
+        mPosition = getArguments().getInt("position");
+        mActivity = mActivities.get(mPosition);
     }
 
 
