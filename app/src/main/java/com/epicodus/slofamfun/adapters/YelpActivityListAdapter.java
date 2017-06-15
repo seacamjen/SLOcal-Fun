@@ -58,7 +58,6 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
         @Bind(R.id.activityImageView) ImageView mRestaurantImageView;
         @Bind(R.id.activityNameTextView) TextView mNameTextView;
         @Bind(R.id.categoryTextView) TextView mCategoryTextView;
-//        @Bind(R.id.ratingTextView) TextView mRatingTextView;
         private Context mContext;
         private int mOrientation;
 
@@ -103,7 +102,6 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
 
             mNameTextView.setText(activity.getName());
             mCategoryTextView.setText(activity.getCategories().get(0));
-//            mRatingTextView.setText(("Rataing: " + activity.getRating() + "/5"));
         }
     }
 
