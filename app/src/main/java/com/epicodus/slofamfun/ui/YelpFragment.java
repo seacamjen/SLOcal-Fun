@@ -1,6 +1,7 @@
 package com.epicodus.slofamfun.ui;
 
 
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.epicodus.slofamfun.Constants;
+import com.epicodus.slofamfun.LocalChoiceFragment;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.adapters.YelpActivityListAdapter;
 import com.epicodus.slofamfun.models.Activity;
