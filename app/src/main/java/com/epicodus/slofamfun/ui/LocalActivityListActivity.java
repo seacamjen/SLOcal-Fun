@@ -12,6 +12,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -33,15 +35,20 @@ public class LocalActivityListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<LocalActivity, FirebaseActivityViewHolder>(LocalActivity.class, R.layout.local_activity_list, FirebaseActivityViewHolder.class, mLocalReference) {
-            @Override
-            protected void populateViewHolder(FirebaseActivityViewHolder viewHolder, LocalActivity model, int position) {
-                  viewHolder.bindActivity(model);
-            }
-        };
-        mLocalRecyclerView.setHasFixedSize(true);
-        mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mLocalRecyclerView.setAdapter(mFirebaseAdapter);
+        try {
+            mFirebaseAdapter = new FirebaseRecyclerAdapter<LocalActivity, FirebaseActivityViewHolder>(LocalActivity.class, R.layout.local_activity_list, FirebaseActivityViewHolder.class, mLocalReference) {
+                @Override
+                protected void populateViewHolder(FirebaseActivityViewHolder viewHolder, LocalActivity model, int position) {
+                    viewHolder.bindActivity(model);
+                }
+            };
+            mLocalRecyclerView.setHasFixedSize(true);
+            mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            mLocalRecyclerView.setAdapter(mFirebaseAdapter);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

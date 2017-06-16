@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -66,11 +67,15 @@ public class YelpDetailFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_yelp_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext())
-                .load(mActivity.getImageUrl())
-                .resize(MAX_WIDTH, MAX_HEIGHT)
-                .centerCrop()
-                .into(mImageLabel);
+        try {
+            Picasso.with(view.getContext())
+                    .load(mActivity.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mImageLabel);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
 
         mNameLabel.setText(mActivity.getName());
         mCategoriesLabel.setText(android.text.TextUtils.join(", ", mActivity.getCategories()));

@@ -60,7 +60,7 @@ public class LocalDetailFragment extends Fragment {
         try {
             Bitmap image = decodeFromFirebaseBase64(mLocalActivity.getImage());
             mActivityImage.setImageBitmap(image);
-        } catch (IOException e ) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
