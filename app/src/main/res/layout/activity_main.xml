@@ -106,7 +106,7 @@
         android:layout_width="230dp"
         android:layout_height="35dp"
         android:id="@+id/searchInput"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"

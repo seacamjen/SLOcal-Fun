@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Spinner cityDropdown = (Spinner)findViewById(R.id.searchInput);
         String[] cities = new String[] {"Atascadero", "San Luis Obispo", "Paso Robles", "Morro Bay", "Avila Beach", "Pismo Beach", "Arroyo Grande", "Templeton", "Grover Beach", "Los Osos", "Cayucos", "Oceano", "Nipomo", "Santa Margarita"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cities);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         cityDropdown.setAdapter(adapter);
-
         cityDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
