@@ -10,12 +10,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +22,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
+    private String cityChosen;
 
     @Bind(R.id.titleView) TextView mTitleView;
     @Bind(R.id.localButton) Button mLocalButton;
@@ -34,8 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.searchButton) Button mSearchButton;
     @Bind(R.id.searchInput) Spinner mSearchInput;
     @Bind(R.id.chooseCity) TextView mChooseCity;
-    private AwesomeValidation awesomeValidation;
-    private String cityChosen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, cities);
         adapter.setDropDownViewResource(R.layout.spinner_item);
         cityDropdown.setAdapter(adapter);
+
         cityDropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -67,35 +64,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-
-//        awesomeValidation.addValidation(this, R.id.searchInput, "^\\d{5}(?:[-\\s]\\d{4})?$", R.string.searcherror);
-
-
         mLocalButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mLogoutButton.setOnClickListener(this);
         mSearchButton.setOnClickListener(this);
     }
 
-    private void submitForm() {
-        if(awesomeValidation.validate()) {
-//            Toast.makeText(this, "Validation Successful", Toast.LENGTH_SHORT).show();
-
-//            String city = cityChosen.getText().toString();
-            if(!(cityChosen).equals("")) {
-                addToSharedPreferences(cityChosen);
-            }
-            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
-            intent.putExtra("city", cityChosen);
-            startActivity(intent);
-        }
-    }
-
     @Override
     public void onClick(View v) {
         if (v == mLocalButton) {
-//            String city = mSearchInput.getText().toString();
             if(!(cityChosen).equals("")) {
                 addToSharedPreferences(cityChosen);
             }
@@ -107,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (v == mSearchButton) {
-            submitForm();
+            addToSharedPreferences(cityChosen);
+            Intent intent = new Intent(MainActivity.this, YelpActivity.class);
+            startActivity(intent);
         }
         if (v == mLogoutButton) {
             FirebaseAuth.getInstance().signOut();

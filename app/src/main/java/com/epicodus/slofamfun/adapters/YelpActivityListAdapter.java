@@ -28,7 +28,6 @@ import butterknife.ButterKnife;
 public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityListAdapter.YelpViewHolder> {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
-
     private ArrayList<Activity> mActivities = new ArrayList<>();
     private Context mContext;
 

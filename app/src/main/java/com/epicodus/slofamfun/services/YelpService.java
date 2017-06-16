@@ -1,7 +1,5 @@
 package com.epicodus.slofamfun.services;
 
-import android.util.Log;
-
 import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.models.Activity;
 
@@ -20,7 +18,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class YelpService {
-    public static final String TAG = YelpService.class.getSimpleName();
 
     public static void findActivities(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()

@@ -6,13 +6,11 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -37,7 +35,6 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     @Bind(R.id.citySpinner) Spinner mCitySpinner;
     @Bind(R.id.strollerSpinner) Spinner mStrollerSpinner;
     @Bind(R.id.addNewActivity) Button mAddNewActivity;
-//    @Bind(R.id.localImageView) ImageView mLocalImageView;
 
     private DatabaseReference mActiveRef;
     private String cityChosen;
@@ -144,7 +141,5 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         String imageEncoded = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
         imageToSave = imageEncoded;
-        Log.d("This is the image String global", imageToSave);
-        Log.d("This is the image String", imageEncoded);
     }
 }

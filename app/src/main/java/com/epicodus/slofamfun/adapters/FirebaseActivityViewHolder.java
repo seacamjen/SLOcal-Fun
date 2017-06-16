@@ -2,29 +2,24 @@ package com.epicodus.slofamfun.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.epicodus.slofamfun.Constants;
 import com.epicodus.slofamfun.R;
 import com.epicodus.slofamfun.models.LocalActivity;
 import com.epicodus.slofamfun.ui.LocalDetailActivity;
-import com.epicodus.slofamfun.ui.LocalUiActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -33,10 +28,8 @@ import java.util.ArrayList;
 
 
 public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
     View mView;
     Context mContext;
-    private LocalActivity localActivity;
 
     public FirebaseActivityViewHolder(View itemView) {
         super(itemView);
