@@ -33,8 +33,6 @@ import java.util.ArrayList;
 
 
 public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private static final int MAX_WIDTH = 200;
-    private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
@@ -59,13 +57,6 @@ public class FirebaseActivityViewHolder extends RecyclerView.ViewHolder implemen
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-//        Picasso.with(mContext)
-//                .load(localActivity.getImage())
-//                .resize(MAX_WIDTH, MAX_HEIGHT)
-//                .centerCrop()
-//                .into(activityImage);
 
         activityName.setText(localActivity.getName());
         activityAddress.setText(localActivity.getAddress());

@@ -94,14 +94,19 @@ public class YelpActivityListAdapter extends RecyclerView.Adapter<YelpActivityLi
         }
 
         public void bindActivity(Activity activity) {
-            Picasso.with(mContext)
-                    .load(activity.getImageUrl())
-                    .resize(MAX_WIDTH, MAX_HEIGHT)
-                    .centerCrop()
-                    .into(mRestaurantImageView);
+            try {
+                Picasso.with(mContext)
+                        .load(activity.getImageUrl())
+                        .resize(MAX_WIDTH, MAX_HEIGHT)
+                        .centerCrop()
+                        .into(mRestaurantImageView);
 
-            mNameTextView.setText(activity.getName());
-            mCategoryTextView.setText(activity.getCategories().get(0));
+                mNameTextView.setText(activity.getName());
+                mCategoryTextView.setText(activity.getCategories().get(0));
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
