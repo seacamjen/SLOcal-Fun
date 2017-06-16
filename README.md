@@ -20,18 +20,18 @@ _Make sure that an emulator is set up for Android Studio: AVD Name - Nexus 6 API
 
 ## Future Plans
 
-* Allow device camera to take pictures and upload
-* Add more activities to local favorites
-* Add email authentication for user registration
+* Add additional orientation support
 * Allow search to include certain types of activities, categories, etc
 
 _This project is focused on San Luis Obispo county, CA cities and will/can be expanded in the future_
 
 ## Current Status
 
-* 12 Activities exist
+* 13 Activities exist
 * 5 Custom Adapter
 * 1 Custom Fragment
+* 2 Models
+* 1 Service
 
 ## Known Bugs
 
