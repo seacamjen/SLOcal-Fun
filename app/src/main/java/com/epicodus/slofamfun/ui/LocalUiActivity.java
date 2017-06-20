@@ -74,7 +74,7 @@ public class LocalUiActivity extends AppCompatActivity {
         mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.setMessage("Retrieving Information...");
-        mAuthProgressDialog.setCancelable(false);
+        mAuthProgressDialog.setCancelable(true);
     }
 
     private void setUpFirebaseAdapter(){
